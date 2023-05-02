@@ -47,7 +47,6 @@ onMounted(() => {
 })
 
 watch(() => props.modalState, (newValue, oldValue) => {
-    console.log(props.modalState)
     showModal.value = newValue
 })
 

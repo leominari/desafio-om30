@@ -5,12 +5,27 @@ export function makeServer({environment = "development"} = {}) {
         environment,
 
         models: {
-            user: Model,
-            patient: Model,
+            user: Model, patient: Model,
         },
 
         seeds(server) {
-            server.create("user", {name: "Leonardo Minari", username: "leominari", password: "123456"})
+            server.create("user", {name: "Admin", username: "admin", password: "admin"})
+            // server.create("patient", {
+            //     "name": "Leonardo Minari",
+            //     "motherName": "Vania Soares",
+            //     "birthDate": "17/07/1997",
+            //     "CPF": "461.689.048-08",
+            //     "CNS": "829 9521 2501 0004",
+            //     "address": {
+            //         "address": "Rua Balduíno Taques",
+            //         "number": "1477",
+            //         "state": "PR",
+            //         "city": "Ponta Grossa",
+            //         "neighborhood": "Centro",
+            //         "CEP": "84010-050"
+            //     }
+            // })
+
         },
 
         routes() {
@@ -28,20 +43,15 @@ export function makeServer({environment = "development"} = {}) {
 
                 if (!user || (user.attrs.password !== attrs.password)) {
                     return {
-                        status: 400,
-                        data: {
+                        status: 400, data: {
                             errors: ['Usuário ou Senha incorretos']
                         }
                     };
                 }
 
                 return {
-                    status: 200,
-                    data: {
-                        name: user.attrs.name,
-                        username: user.attrs.username,
-                        photo: user.attrs.photo,
-                        token: 'token'
+                    status: 200, data: {
+                        name: user.attrs.name, username: user.attrs.username, photo: user.attrs.photo, token: 'token'
                     },
 
                 };
@@ -53,19 +63,35 @@ export function makeServer({environment = "development"} = {}) {
                 let newPatient = patients.create(attrs)
 
                 return {
-                    status: 200,
-                    data: {...newPatient},
+                    status: 200, data: {...newPatient},
 
                 };
             })
 
 
-            this.delete('/patients', ({patients}, request) => {
-                console.log(request)
+            this.delete('/patients/:id', ({patients}, request) => {
+                const id = request.params.id;
+                patients.find(id).destroy();
+
                 return {
                     status: 200,
-                    data: {...newPatient},
 
+                };
+            })
+
+
+
+            this.put('/patients/:id', ({patients}, request) => {
+                const id = request.params.id;
+                const attrs = JSON.parse(request.requestBody)
+                const patient = patients.find(id);
+
+
+                patient.update(attrs);
+
+                return {
+                    status: 200,
+                    data: {...patient.attrs}
                 };
             })
 
@@ -81,14 +107,13 @@ export function makeServer({environment = "development"} = {}) {
                             name: user.attrs.name,
                             motherName: user.attrs.motherName,
                             birthDate: user.attrs.birthDate,
-                            cpf: user.attrs.cpf,
-                            cns: user.attrs.cns,
+                            CPF: user.attrs.CPF,
+                            CNS: user.attrs.CNS,
                         }
                     })
 
                 return {
-                    status: 200,
-                    data: patientsList
+                    status: 200, data: patientsList
                 }
             })
 

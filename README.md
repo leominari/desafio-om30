@@ -1,35 +1,33 @@
-# vue-project
+# Teste OM30
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto desenvolvido usando vue3 + tailwindcss + miraje.js
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Execução Projeto
 
 ```sh
 npm install
 ```
+### Copiar o .env
 
-### Compile and Hot-Reload for Development
+```sh
+windows
+copy .env.example .env
+
+linux
+cp .env.example .env
+```
+
+### Compilar e rodar Hot-reload
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+
+## Login no Projeto
 
 ```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+usuario: admin
+senha: admin
 ```

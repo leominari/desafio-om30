@@ -37,7 +37,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    // console.log(TokenService.hasToken(),'salve')
     if('noAuth' in to.meta && to.meta.noAuth) {
         next()
         return

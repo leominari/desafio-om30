@@ -53,7 +53,6 @@ const user = ref({
 })
 
 function sendLogin() {
-    console.log(user)
     fetch("/api/login",
         {
             method: 'POST',

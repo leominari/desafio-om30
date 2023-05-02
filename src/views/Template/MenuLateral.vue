@@ -24,7 +24,7 @@
         <div class="flex flex-col space-y-4">
             <VDropdown positioningDisabled>
                 <button class="bg-gray-200 w-[2.5rem] h-[2.5rem] rounded-full flex items-center justify-center">
-                    <UserPhoto class="w-[1.4rem] h-[1.4rem]"/>
+                    <CircularPhoto class="w-[1.4rem] h-[1.4rem]"/>
                 </button>
 
                 <template #popper>
@@ -50,6 +50,7 @@
 // import UserPhoto from "@/modules/User/UserPhoto.vue";
 import {useRouter} from 'vue-router'
 import TokenService from "@/utils/token-service";
+import CircularPhoto from "@/components/CircularPhoto.vue";
 
 const router = useRouter()
 
