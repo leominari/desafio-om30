@@ -12,7 +12,11 @@
   "dependencies": {
     "@egoist/tailwindcss-icons": "^1.0.7",
     "@iconify/json": "^2.2.56",
+    "@vuelidate/core": "^2.0.2",
+    "@vuelidate/validators": "^2.0.2",
     "floating-vue": "^2.0.0-beta.20",
+    "maska": "^2.1.9",
+    "moment": "^2.29.4",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
