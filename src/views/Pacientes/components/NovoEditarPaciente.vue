@@ -238,6 +238,7 @@ onMounted(() => {
                 state.address.city = data.address.city;
                 state.address.neighborhood = data.address.neighborhood;
                 state.address.CEP = data.address.CEP;
+                state.photo = data.photo
 
             })
     }
